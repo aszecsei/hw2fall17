@@ -2,11 +2,12 @@ class CartesianProduct
   include Enumerable
 
   def initialize(a,b)
-    #YOUR CODE HERE
+    @a = a
+    @b = b
   end
 
   def each
-    #YOUR CODE HERE
+    @a.each { |a_e| @b.each { |b_e| yield [a_e, b_e] } }
   end
 
 end

@@ -11,6 +11,16 @@ describe "dessert" do
       expect(Dessert.new('a',1)).to respond_to(method)
     end
   end
+  it "should store calories" do
+      expect(Dessert.new('celery', 1).calories).to eq(1)
+  end
+  it "should sometimes be healthy" do
+      expect(Dessert.new('celery', 1).healthy?).to be true
+      expect(Dessert.new('ice cream', 500).healthy?).to be false
+  end
+  it "should be delicious" do
+      expect(Dessert.new('ice cream', 500).delicious?).to be true
+  end
 end
 
 describe "jellybean" do
@@ -23,5 +33,16 @@ describe "jellybean" do
 #      JellyBean.new('a',1, 2).should respond_to method 
       expect(JellyBean.new('a',1, 2)).to respond_to(method) 
     end
+  end
+  it "should store calories" do
+      expect(JellyBean.new('a', 1, 'red licorice').calories).to eq(1)
+  end
+  it "should sometimes be healthy" do
+      expect(JellyBean.new('a', 1, 'red licorice').healthy?).to be true
+      expect(JellyBean.new('a', 1000, 'red licorice').healthy?).to be false
+  end
+  it "should sometimes be delicious" do
+      expect(JellyBean.new('a', 1, 'red licorice').delicious?).to be true
+      expect(JellyBean.new('a', 1, 'black licorice').delicious?).to be false
   end
 end
